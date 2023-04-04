@@ -168,6 +168,11 @@ public class Playing extends State implements StateMethods{
 		objectManager.checkObjectHit(attackBox);
 	}
 	
+	public void checkSpikesTouched(Player player) {
+		objectManager.checkSpikesTouched(player);
+		
+	}
+	
 	public void resetAll() {
 		// reset after die
 		gameOver = false;
@@ -295,4 +300,9 @@ public class Playing extends State implements StateMethods{
 		return objectManager;
 	}
 
+	public LevelManager getLevelManager() {
+		return levelManager;
+	}
+
+	
 }

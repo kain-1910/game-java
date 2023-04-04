@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import entities.Crep;
 import main.Game;
 import object.Potion;
+import object.Spike;
 import object.gameContainer;
 
 public class HelpMethods {
@@ -171,5 +172,18 @@ public class HelpMethods {
 			}
 		}
 		return containers;
+	}
+
+	public static ArrayList<Spike> GetSpikes(BufferedImage img) {
+		ArrayList<Spike> spikes = new ArrayList<>();
+		for(int i = 0; i < img.getHeight(); i++) {
+			for(int j = 0; j < img.getWidth(); j++) {
+				Color color = new Color(img.getRGB(j, i));
+				int value = color.getBlue();
+				if(value == SPIKE) 
+					spikes.add(new Spike(j*Game.TILE_SIZE, i*Game.TILE_SIZE, SPIKE));
+			}
+		}
+		return spikes;
 	}
 }

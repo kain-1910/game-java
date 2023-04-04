@@ -6,6 +6,7 @@ import static utliz.HelpMethods.*;
 import entities.Crep;
 import main.Game;
 import object.Potion;
+import object.Spike;
 import object.gameContainer;
 import utliz.HelpMethods;
 
@@ -16,6 +17,7 @@ public class Level {
 	private ArrayList<Crep> creps;
 	private ArrayList<Potion> potions;
 	private ArrayList<gameContainer> containers;
+	private ArrayList<Spike> spikes;
 	private int lvlTilesWide;
 	private int maxTilesOffset;
 	private int maxLvlOffsetX;
@@ -26,9 +28,16 @@ public class Level {
 		createEnemy();
 		createPotions();
 		createContainers();
+		createSpikes();
+		
 		calcLvlOffset();
 	}
 	
+	private void createSpikes() {
+		spikes = HelpMethods.GetSpikes(img);
+		
+	}
+
 	private void createContainers() {
 		containers = HelpMethods.GetContainers(img);
 	}
@@ -76,6 +85,10 @@ public class Level {
 	
 	public ArrayList<gameContainer> getContainers() {
 		return containers;
+	}
+
+	public ArrayList<Spike> getSpikes() {
+		return spikes;
 	}
 	
 }

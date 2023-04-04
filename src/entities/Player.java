@@ -29,7 +29,7 @@ public class Player extends Entity{
 	private double yDrawOffSet = 3.2f*Game.SCALE;
 
 //	jump and fall
-	private double jumpSpeed = -2.75f * Game.SCALE;
+	private double jumpSpeed = -2.5f * Game.SCALE;
 	private double fallSpeedAfterCollision = 0.25f * Game.SCALE;
 	
 //	status bar
@@ -82,8 +82,10 @@ public class Player extends Entity{
 		updateAttackBox();
 		
 		updatePos();
-		if(moving)
+		if(moving) {
 			checkPotionTouched();
+			checkSpikesTouched();
+		}
 		if(attack)
 			checkAttack();
 		
@@ -91,6 +93,11 @@ public class Player extends Entity{
 		setAnimation();
 	}
 	
+	private void checkSpikesTouched() {
+		playing.checkSpikesTouched(this);
+		
+	}
+
 	private void checkPotionTouched() {
 		playing.checkPotionTouched(hitBox);
 		
@@ -264,8 +271,12 @@ public class Player extends Entity{
 		}
 		else if(currentHealth >= maxHealth)
 			currentHealth = maxHealth;
-		
 	}
+	
+	public void kill() {
+		currentHealth = 0;
+	}
+
 	
 //	nếu không focus vào màn hình thì tự động dừng di chuyển
 	public void resetDirBoolean() {
@@ -358,7 +369,5 @@ public class Player extends Entity{
 	public void setJump(boolean jump) {
 		this.jump = jump;
 	}
-
-
 
 }

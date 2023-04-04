@@ -57,6 +57,7 @@ public class LoadSave {
 	public static final String LEVEL_ONE_DATA = "res/map/level_one_data_long.png";
 	public static final String POTION_ATLAS = "res/object/potions_sprites.png";
 	public static final String CONTAINER_ATLAS = "res/object/objects_sprites.png";
+	public static final String SPIKE_ATLAS = "res/object/trap_atlas.png";
 	
 //	đọc ảnh character
 	public static BufferedImage[] GetSpritesAtlas(String[] fileName) {
